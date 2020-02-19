@@ -100,7 +100,7 @@
     <form action="{{url('/postlogin')}}" method="post">
     	@csrf
 		<div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
-    	<h4 class="modal-title">E-Data PTK</h4>
+    	<h4 class="modal-title">Login Aplikasi</h4>
         <div class="form-group">
             <input name="name" type="text" class="form-control" placeholder="Username" required="required">
         </div>
