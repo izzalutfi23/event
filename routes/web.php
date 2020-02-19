@@ -11,6 +11,12 @@
 |
 */
 
+// Login
+Route::get('/login', 'Authcontroller@index');
+Route::post('/postlogin', 'Authcontroller@postlogin');
+Route::get('/logout', 'Authcontroller@logout');
+
+
 // Halaman admin
 // Dashboard
 Route::get('/', 'DashboardController@index');
