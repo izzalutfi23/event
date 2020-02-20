@@ -12,6 +12,9 @@
 */
 // Utama
 Route::get('/', 'Utamacontroller@index');
+Route::get('/acara/daftar/{macara}', 'Utamacontroller@daftar');
+Route::post('/postdaftar', 'Utamacontroller@postdaftar');
+Route::get('/passdaftar', 'Utamacontroller@passdaftar');
 
 
 // Login

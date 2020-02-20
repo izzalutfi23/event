@@ -60,7 +60,7 @@
                                     <tr>                
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$data->acara}}</td>
-                                        <td>{{$data->deskripsi}}</td>
+                                        <td>{{substr($data->deskripsi, 0, 20)}}...</td>
                                         <td>{{$data->tanggal}}</td>
                                         <td>{{$data->tempat}}</td>
                                         <td>{{$data->waktu}}</td>
