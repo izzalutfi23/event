@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Utama
+Route::get('/', 'Utamacontroller@index');
+
 
 // Login
 Route::get('/login', 'Authcontroller@index')->name('login');
@@ -20,7 +23,7 @@ Route::get('/logout', 'Authcontroller@logout');
 // Halaman admin
 // Dashboard
 Route::group(['middleware'=>'auth'], function(){
-	Route::get('/', 'DashboardController@index');
+	Route::get('/dashboard', 'DashboardController@index');
 	// Acara
 	Route::get('/acara', 'Acaracontroller@index');
 	Route::post('/acara', 'Acaracontroller@store');

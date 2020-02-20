@@ -13,13 +13,13 @@ class Authcontroller extends Controller
     }
     public function postlogin(Request $request){
     	if(Auth::attempt($request->only('name', 'password'))){
-    		return redirect('/');
+    		return redirect('/dashboard');
     	}
     	return redirect('/login');
     }
 
     public function logout(){
     	Auth::logout();
-    	return redirect('/login');
+    	return redirect('/');
     }
 }
