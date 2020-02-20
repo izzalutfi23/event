@@ -27,7 +27,7 @@
                     <div class="table-responsive">
                         <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
 
-                            <form action="{{url('/acara/'.$data->id)}}" method="post">
+                            <form action="{{url('/acara/'.$data->id)}}" enctype="multipart/form-data" method="post">
                                 @csrf
                                 @method('patch')
                                 <div class="position-relative form-group">
@@ -59,7 +59,10 @@
                                     <label class="">Keterangan</label>
                                     <input name="keterangan" value="{{$data->keterangan}}" type="text" class="form-control" required="required">
                                 </div>
-
+                                <div class="position-relative form-group">
+                                    <label class="">Foto</label>
+                                    <input name="foto" type="file" class="form-control">
+                                </div>
                                 <button type="submit" class="mt-2 btn btn-primary">Edit</button>
                             </form>
 

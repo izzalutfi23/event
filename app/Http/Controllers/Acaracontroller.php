@@ -39,8 +39,21 @@ class Acaracontroller extends Controller
      */
     public function store(Request $request)
     {
-        Macara::create($request->all());
+        if($request->hasFile('foto')){
+            $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
+            $nama_file = $request->file('foto')->getClientOriginalName();
+        }
 
+        Macara::create([
+            'acara' => $request->acara,
+            'deskripsi' => $request->deskripsi,
+            'tanggal' => $request->tanggal,
+            'tempat' => $request->tempat,
+            'waktu' => $request->waktu,
+            'jml_peserta' => $request->jml_peserta,
+            'keterangan' => $request->keterangan,
+            'foto' => $nama_file
+        ]);
         return redirect('/acara')->with('status', 'Acara berhasil ditambahkan');
     }
 
@@ -75,15 +88,30 @@ class Acaracontroller extends Controller
      */
     public function update(Request $request, Macara $macara)
     {
-        Macara::where('id', $macara->id)->update([
-            'acara' => $request->acara,
-            'deskripsi' => $request->deskripsi,
-            'tanggal' => $request->tanggal,
-            'tempat' => $request->tempat,
-            'waktu' => $request->waktu,
-            'jml_peserta' => $request->jml_peserta,
-            'keterangan' => $request->keterangan
-        ]);
+        if($request->hasFile('foto')){
+            $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
+            $nama_file = $request->file('foto')->getClientOriginalName();
+            Macara::where('id', $macara->id)->update([
+                'acara' => $request->acara,
+                'deskripsi' => $request->deskripsi,
+                'tanggal' => $request->tanggal,
+                'tempat' => $request->tempat,
+                'waktu' => $request->waktu,
+                'jml_peserta' => $request->jml_peserta,
+                'keterangan' => $request->keterangan,
+                'foto' => $nama_file
+            ]);
+        }else{
+            Macara::where('id', $macara->id)->update([
+                'acara' => $request->acara,
+                'deskripsi' => $request->deskripsi,
+                'tanggal' => $request->tanggal,
+                'tempat' => $request->tempat,
+                'waktu' => $request->waktu,
+                'jml_peserta' => $request->jml_peserta,
+                'keterangan' => $request->keterangan
+            ]);
+        }
         
         return redirect('/acara')->with('status', 'Acara berhasil diedit');
     }

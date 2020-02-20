@@ -51,6 +51,7 @@
                                         <th>Waktu</th>
                                         <th>Jml Peserta</th>
                                         <th>Keterangan</th>
+                                        <th>Foto</th>
                                         <th width="13%">Aksi</th>
                                     </tr>
                                 </thead>
@@ -65,6 +66,7 @@
                                         <td>{{$data->waktu}}</td>
                                         <td>{{$data->jml_peserta}}</td>
                                         <td>{{$data->keterangan}}</td>
+                                        <td><img width="75px" height="80px" src="{{url('foto/'.$data->foto)}}"></td>
                                         <td width="13%">
                                             <a href="{{url('/acara/edit/'.$data->id)}}"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
                                             <a onclick="return confirm('Data akan dihapus!')" href="{{url('/acara/del/'.$data->id)}}"><button type="button" class="btn btn-danger btn-sm">Hapus</button></a>
@@ -119,7 +121,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{url('/acara')}}" method="post">
+                <form action="{{url('/acara')}}" enctype="multipart/form-data" method="post">
                     @csrf
                     <div class="position-relative form-group">
                         <label class="">Nama Acara</label>
@@ -149,6 +151,10 @@
                     <div class="position-relative form-group">
                         <label class="">Keterangan</label>
                         <input name="keterangan" placeholder="Ex : Bersepatu" type="text" class="form-control" required="required">
+                    </div>
+                    <div class="position-relative form-group">
+                        <label class="">Foto</label>
+                        <input name="foto" type="file" class="form-control" required="required">
                     </div>
                 </div>
                 <div class="modal-footer">
