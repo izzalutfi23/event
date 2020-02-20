@@ -26,7 +26,7 @@
                             <div class="widget-subheading">Jumlah Semua Acara</div>
                         </div>
                         <div class="widget-content-right">
-                            <div class="widget-numbers text-white"><span>30</span></div>
+                            <div class="widget-numbers text-white"><span>{{$acara}}</span></div>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                             <div class="widget-subheading">Jumlah Semua Peserta Terdaftar</div>
                         </div>
                         <div class="widget-content-right">
-                            <div class="widget-numbers text-white"><span>20</span></div>
+                            <div class="widget-numbers text-white"><span>{{$peserta}}</span></div>
                         </div>
                     </div>
                 </div>

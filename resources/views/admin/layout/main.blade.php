@@ -121,7 +121,7 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Dashboards</li>
                             <li>
-                                <a href="{{url('/')}}" class="{{ (request()->segment(1) == '') ? 'mm-active' : '' }}">
+                                <a href="{{url('/dashboard')}}" class="{{ (request()->segment(1) == 'dashboard') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon pe-7s-home"></i>
                                     Dashboard
                                 </a>

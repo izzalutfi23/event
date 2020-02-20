@@ -41,3 +41,7 @@ Route::group(['middleware'=>'auth'], function(){
 	// Peserta Verif
 	Route::get('/pesertav', 'Pesertaverif@index');
 });
+
+// Doorprize
+Route::get('/doorprize', 'Doorprize@index');
+Route::post('/pemenang', 'Doorprize@pemenang');
