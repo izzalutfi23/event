@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2020 at 05:50 PM
+-- Generation Time: Feb 21, 2020 at 05:55 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -151,7 +151,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', 'admin@gmail.com', NULL, '$2y$10$zxWWnknB6e9lPomSkuIrO.jGgqtC0ZBKscOoyNObE2OdOfwJgyERW', 'v1MTg1bROHdqeCeEZArcL5FW1wGyZi4LtwOyeZVIW494yUKWSy7eWUxZ4dwR', '2020-02-19 12:51:30', '2020-02-19 12:51:30');
+(1, 'Administrator', 'admin@gmail.com', NULL, '$2y$10$zxWWnknB6e9lPomSkuIrO.jGgqtC0ZBKscOoyNObE2OdOfwJgyERW', 'ukgSlAdLh0v5QgVY2IuE1tyMjZOa9e0GbMo40HLtJAgffCwPJPK3J5ljG9fT', '2020-02-19 12:51:30', '2020-02-19 12:51:30'),
+(2, 'Muhammad Izza Lutfi', 'izzalutfi045@gmail.com', NULL, '$2y$10$LAUh6xIr4RRAIgrD4Yu5xeDZwgQDXfrVV2LRiKGAOs5fZ7NjPqWmq', NULL, '2020-02-20 20:23:44', '2020-02-20 20:23:44');
 
 --
 -- Indexes for dumped tables
@@ -227,7 +228,7 @@ ALTER TABLE `peserta`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
