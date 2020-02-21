@@ -163,6 +163,12 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="{{url('/user')}}" class="{{ (request()->segment(1) == 'user') ? 'mm-active' : '' }}">
+                                    <i class="metismenu-icon pe-7s-user"></i>
+                                    Admin
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

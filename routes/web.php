@@ -40,6 +40,10 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::get('/peserta/del/{mpeserta}', 'Pesertacontroller@destroy');
 	// Peserta Verif
 	Route::get('/pesertav', 'Pesertaverif@index');
+	// Admin
+	Route::get('/user', 'Usercontroller@index');
+	Route::post('/user', 'Usercontroller@store');
+	Route::get('/user/del/{user}', 'Usercontroller@destroy');
 });
 
 // Doorprize
