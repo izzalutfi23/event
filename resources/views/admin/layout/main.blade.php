@@ -169,6 +169,18 @@
                                     Admin
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{url('/hadiah')}}" class="{{ (request()->segment(1) == 'hadiah') ? 'mm-active' : '' }}">
+                                    <i class="metismenu-icon pe-7s-gift"></i>
+                                    Hadiah
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{url('/pemenang')}}" class="{{ (request()->segment(1) == 'pemenang') ? 'mm-active' : '' }}">
+                                    <i class="metismenu-icon pe-7s-user"></i>
+                                    Pemenang
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

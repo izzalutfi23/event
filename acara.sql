@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2020 at 05:55 AM
+-- Generation Time: Apr 24, 2020 at 05:53 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -69,6 +69,27 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `hadiah`
+--
+
+CREATE TABLE `hadiah` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama_hadiah` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `hadiah`
+--
+
+INSERT INTO `hadiah` (`id`, `nama_hadiah`, `created_at`, `updated_at`) VALUES
+(1, 'Sepeda', '2020-04-21 17:00:00', '2020-04-21 17:00:00'),
+(3, 'Motor Beat', '2020-04-22 08:21:06', '2020-04-22 08:21:06');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -87,7 +108,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2020_02_19_163101_create_acara_table', 2),
-(5, '2020_02_19_184404_create_peserta_table', 3);
+(5, '2020_02_19_184404_create_peserta_table', 3),
+(6, '2020_04_22_135429_create_hadiah_table', 4),
+(7, '2020_04_22_135822_create_pemenang_table', 5);
 
 -- --------------------------------------------------------
 
@@ -100,6 +123,30 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pemenang`
+--
+
+CREATE TABLE `pemenang` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_acara` bigint(10) UNSIGNED NOT NULL,
+  `id_peserta` bigint(10) UNSIGNED NOT NULL,
+  `id_hadiah` bigint(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pemenang`
+--
+
+INSERT INTO `pemenang` (`id`, `id_acara`, `id_peserta`, `id_hadiah`, `created_at`, `updated_at`) VALUES
+(1, 10, 4, 1, '2020-04-21 17:00:00', '2020-04-21 17:00:00'),
+(2, 9, 5, 1, '2020-04-22 08:17:19', '2020-04-22 08:17:19'),
+(4, 8, 4, 3, '2020-04-22 09:58:16', '2020-04-22 09:58:16');
 
 -- --------------------------------------------------------
 
@@ -126,8 +173,10 @@ CREATE TABLE `peserta` (
 
 INSERT INTO `peserta` (`id`, `id_acara`, `nama`, `j_kel`, `tgl_lahir`, `email`, `no_hp`, `status`, `created_at`, `updated_at`) VALUES
 (4, 8, 'Muhammad Izza Lutfi', 'L', '2020-01-01', 'izzalutfi045@gmail.com', '087987675675', 1, '2020-02-20 05:55:59', '2020-02-20 06:37:36'),
-(5, 9, 'test', 'P', '2020-12-31', 'test@gmail.com', '09876543456', 0, '2020-02-20 06:01:37', '2020-02-20 06:01:37'),
-(6, 10, 'coba', 'L', '2020-01-01', 'izzalutfi45@gmail.com', '34567890', 0, '2020-02-20 06:37:03', '2020-02-20 06:37:03');
+(5, 9, 'test', 'P', '2020-12-31', 'test@gmail.com', '09876543456', 1, '2020-02-20 06:01:37', '2020-02-26 05:40:42'),
+(6, 10, 'coba', 'L', '2020-01-01', 'izzalutfi45@gmail.com', '34567890', 1, '2020-02-20 06:37:03', '2020-04-22 09:34:11'),
+(7, 10, 'vv', 'L', '2020-01-01', 'izzalutfi045@gmail.com', '32456789', 1, '2020-02-26 05:38:30', '2020-04-22 09:34:15'),
+(8, 8, 'Sudarto', 'L', '2020-04-15', 'anitatriulfania72@gmail.com', '34567890', 1, '2020-04-22 08:36:00', '2020-04-22 09:34:20');
 
 -- --------------------------------------------------------
 
@@ -151,7 +200,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', 'admin@gmail.com', NULL, '$2y$10$zxWWnknB6e9lPomSkuIrO.jGgqtC0ZBKscOoyNObE2OdOfwJgyERW', 'ukgSlAdLh0v5QgVY2IuE1tyMjZOa9e0GbMo40HLtJAgffCwPJPK3J5ljG9fT', '2020-02-19 12:51:30', '2020-02-19 12:51:30'),
+(1, 'Administrator', 'admin@gmail.com', NULL, '$2y$10$zxWWnknB6e9lPomSkuIrO.jGgqtC0ZBKscOoyNObE2OdOfwJgyERW', 'UhLNABNssLKyGNNHldLimEQsNPhgix8a5Xh19LIFrq7uZZViaJHJNZVqdev1', '2020-02-19 12:51:30', '2020-02-19 12:51:30'),
 (2, 'Muhammad Izza Lutfi', 'izzalutfi045@gmail.com', NULL, '$2y$10$LAUh6xIr4RRAIgrD4Yu5xeDZwgQDXfrVV2LRiKGAOs5fZ7NjPqWmq', NULL, '2020-02-20 20:23:44', '2020-02-20 20:23:44');
 
 --
@@ -171,6 +220,12 @@ ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `hadiah`
+--
+ALTER TABLE `hadiah`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -181,6 +236,15 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `pemenang`
+--
+ALTER TABLE `pemenang`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_acara` (`id_acara`),
+  ADD KEY `id_peserta` (`id_peserta`),
+  ADD KEY `id_hadiah` (`id_hadiah`);
 
 --
 -- Indexes for table `peserta`
@@ -213,32 +277,52 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `hadiah`
+--
+ALTER TABLE `hadiah`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `pemenang`
+--
+ALTER TABLE `pemenang`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `peserta`
 --
 ALTER TABLE `peserta`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `pemenang`
+--
+ALTER TABLE `pemenang`
+  ADD CONSTRAINT `pemenang_ibfk_1` FOREIGN KEY (`id_acara`) REFERENCES `acara` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pemenang_ibfk_2` FOREIGN KEY (`id_peserta`) REFERENCES `peserta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pemenang_ibfk_3` FOREIGN KEY (`id_hadiah`) REFERENCES `hadiah` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `peserta`
 --
 ALTER TABLE `peserta`
-  ADD CONSTRAINT `peserta_ibfk_1` FOREIGN KEY (`id_acara`) REFERENCES `acara` (`id`);
+  ADD CONSTRAINT `peserta_ibfk_1` FOREIGN KEY (`id_acara`) REFERENCES `acara` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

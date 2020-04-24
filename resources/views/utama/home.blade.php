@@ -27,6 +27,8 @@
 			<p>Perhatian : <b style="font-weight: bold;">{{$data->keterangan}}</b></p>
 			<p style="font-weight: bold;">Sisa Kuota : {{$data->jml_peserta}} Orang</p>
 			<a href="{{url('/acara/daftar/'.$data->id)}}" class="@if($loop->iteration%2 != 0 ) text-uppercase tm-btn tm-btn-white tm-btn-white-primary @else text-uppercase tm-btn tm-btn-white tm-btn-white-highlight @endif">Daftar Sekarang</a>
+			<a href="{{url('/datapeserta/verif/'.$data->id)}}" class="@if($loop->iteration%2 != 0 ) text-uppercase tm-btn tm-btn-white tm-btn-white-primary @else text-uppercase tm-btn tm-btn-white tm-btn-white-highlight @endif">Lihat Peserta</a>
+			<a href="{{url('/datapemenang/dorprize/'.$data->id)}}" class="@if($loop->iteration%2 != 0 ) text-uppercase tm-btn tm-btn-white tm-btn-white-primary @else text-uppercase tm-btn tm-btn-white tm-btn-white-highlight @endif">Pemenang Dorprize</a>
 		</div>
 	</section>
 	@endforeach

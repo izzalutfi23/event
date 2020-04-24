@@ -16,6 +16,11 @@ Route::get('/acara/daftar/{macara}', 'Utamacontroller@daftar');
 Route::post('/postdaftar', 'Utamacontroller@postdaftar');
 Route::get('/passdaftar', 'Utamacontroller@passdaftar');
 
+// Data Peserta Terverifikasi
+Route::get('/datapeserta/verif/{id}', 'Datapesertaverif@index');
+
+//Data Pemenang Doorprize
+Route::get('/datapemenang/dorprize/{id}', 'Datapemenang@index');
 
 // Login
 Route::get('/login', 'Authcontroller@index')->name('login');
@@ -44,8 +49,12 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::get('/user', 'Usercontroller@index');
 	Route::post('/user', 'Usercontroller@store');
 	Route::get('/user/del/{user}', 'Usercontroller@destroy');
+	// Hadiah
+	Route::get('/hadiah', 'Hadiahcontroller@index');
+	Route::post('/hadiah', 'Hadiahcontroller@store');
+	Route::get('/hadiah/del/{hadiahmodel}', 'Hadiahcontroller@destroy');
+	// Pememang
+	Route::get('/pemenang', 'Pemenangcontroller@index');
+	Route::post('/pemenang', 'Pemenangcontroller@store');
+	Route::get('/pemenang/del/{pemenangmodel}', 'Pemenangcontroller@destroy');
 });
-
-// Doorprize
-Route::get('/doorprize', 'Doorprize@index');
-Route::post('/pemenang', 'Doorprize@pemenang');

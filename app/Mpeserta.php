@@ -13,4 +13,11 @@ class Mpeserta extends Model
     public function acara(){
     	return $this->belongsTo('App\Macara', 'id_acara', 'id');
     }
+
+    public function tgl()
+    {
+    	\Carbon\Carbon::setLocale('id');
+    	return \Carbon\Carbon::parse($this->attributes['created_at'])
+    	->format('d M Y');
+    }
 }
