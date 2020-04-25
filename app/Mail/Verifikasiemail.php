@@ -32,7 +32,7 @@ class Verifikasiemail extends Mailable
     {
         return $this->from('eventmasterpusri@gmail.com')
                     ->view('emailnotif')
-                    ->subject('Test Email')
+                    ->subject('Pemberitahuan')
                     ->with($this->data);
     }
 }

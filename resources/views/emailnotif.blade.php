@@ -30,9 +30,9 @@
 </head>
 <body>
     <div class="card">
-        <h3 class="">Welcome To Our App {{$nama}}</h3>
+        <h3 class="">Selamat Datang {{$nama}}</h3>
         <hr class="garis">
-        <p>Selamat anda telah melakuka registrasi.</p>
+        <p>Selamat anda berhasil melakukan registrasi pada event yang anda ikuti yaitu <br> <b>{{$event}}</b></p>
         <h4>Terima kasih telah bergabung dengan kami</h4>
     </div>
 </body>

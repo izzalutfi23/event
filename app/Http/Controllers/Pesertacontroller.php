@@ -28,7 +28,8 @@ class Pesertacontroller extends Controller
         ]);
 
         $data = array(
-            'nama' => $mpeserta->nama
+            'nama' => $mpeserta->nama,
+            'event' => $mpeserta->acara->acara
         );
 
         Mail::to($mpeserta->email)->send(new Verifikasiemail($data));
