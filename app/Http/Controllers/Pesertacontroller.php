@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Mpeserta;
 use Illuminate\Http\Request;
 
+use App\Mail\Verifikasiemail;
+use Illuminate\Support\Facades\Mail;
+
 class Pesertacontroller extends Controller
 {
     /**
@@ -23,6 +26,12 @@ class Pesertacontroller extends Controller
         Mpeserta::where('id', $mpeserta->id)->update([
             'status' => 1
         ]);
+
+        $data = array(
+            'nama' => $mpeserta->nama
+        );
+
+        Mail::to($mpeserta->email)->send(new Verifikasiemail($data));
 
         return redirect('/peserta')->with('status', 'Peserta sudah diverifikasi');
     }
